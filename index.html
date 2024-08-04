@@ -10,46 +10,175 @@
         <title>kephalosk | Results summary component</title>
 
         <style>
-            .attribution { font-size: 11px; text-align: center; }
-            .attribution a { color: hsl(228, 45%, 44%); }
+            @font-face {
+                font-family: "HankenGrotesk";
+                src: url('assets/fonts/static/HankenGrotesk-Medium.ttf') format('truetype');
+            }
+
+            @font-face {
+                font-family: "HankenGrotesk";
+                src: url('assets/fonts/static/HankenGrotesk-Bold.ttf') format('truetype');
+                font-weight: bold;
+            }
+
+            @font-face {
+                font-family: "HankenGroteskExtraBold";
+                src: url('assets/fonts/static/HankenGrotesk-ExtraBold.ttf') format('truetype');
+            }
+
+            .attribution {
+                font-size: 11px;
+                text-align: center;
+            }
+
+            .attribution a {
+                color: hsl(228, 45%, 44%);
+            }
+
+            .scoreCard {
+                background: hsl(241, 81%, 54%);
+                background: linear-gradient(0deg, hsl(241, 81%, 54%) 0%, hsl(252, 100%, 67%) 100%);
+                border-radius: 30px;
+            }
+
+            .scoreCard h2 {
+                color: hsl(0, 0%, 100%);
+            }
+
+            .scoreCardCircle {
+                background: hsl(246.5, 90.5%, 60.5%);
+                background: linear-gradient(0deg, hsl(246.5, 90.5%, 60.5%) 0%, hsla(256, 72%, 46%, 1) 100%);
+            }
+
+            .scoreCardPossible {
+                color: hsl(241, 100%, 75%);
+            }
+
+            .scoreCardReached {
+                color: hsl(0, 0%, 100%);
+                font-family: HankenGroteskExtraBold,sans-serif;
+            }
+
+            .summaryCard {
+            }
+
+            .summaryCardLabelReaction {
+                color: hsl(0, 100%, 67%);
+            }
+
+            .summaryCardLabelMemory {
+                color: hsl(39, 100%, 56%);
+            }
+
+            .summaryCardLabelVerbal {
+                color: hsl(166, 100%, 37%);
+            }
+
+            .summaryCardLabelVisual {
+                color: hsl(234, 85%, 45%);
+            }
+
+            .summaryCardPossible {
+                color: hsl(204, 8%, 60%, 1);
+            }
+
+            .summaryCardReached {
+                color: hsl(224, 30%, 27%);
+            }
+
+            .summaryCardResultBarReaction {
+                background-color: hsl(0, 100%, 67%, 5%);
+            }
+
+            .summaryCardResultBarMemory {
+                background-color: hsl(39, 100%, 56%, 5%);
+            }
+
+            .summaryCardResultBarVerbal {
+                background-color: hsl(166, 100%, 37%, 5%);
+            }
+
+            .summaryCardResultBarVisual {
+                background-color: hsl(234, 85%, 45%, 5%);
+            }
+
+            body {
+                align-items: center;
+                justify-content: center;
+                display: flex;
+                flex-direction: column;
+                font-family: HankenGrotesk,sans-serif;
+            }
+
+            button {
+                background-color: hsl(224, 30%, 27%);
+                border: 0;
+                border-radius: 30px;
+                color: hsl(0, 0%, 100%);
+                font-family: HankenGrotesk,sans-serif;
+                font-weight: bold;
+                font-size: 16px;
+                padding: 16px 0;
+            }
+
+            h1 {
+                color: hsl(241, 100%, 89%);
+            }
+
+            h2 {
+                color: hsl(224, 30%, 27%);
+            }
+
+            main {
+                border-radius: 30px;
+                box-shadow: 10px 5px 25px 0px hsla(241, 72%, 46%, 0.1);
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                margin: 284px 0;
+                width: 736px;
+            }
+
+            p {
+                color: hsl(241, 100%, 89%);
+            }
         </style>
     </head>
     <body>
         <main>
-            <section title="scoreCard">
+            <section class="scoreCard" title="scoreCard">
                 <h1>Your Result</h1>
-                <div title="scoreCircle">
-                    <label id="scoreReached">76</label>
-                    <label id="scorePossible">of 100</label>
+                <div class="scoreCardCircle" title="scoreCardCircle">
+                    <label class="scoreCardReached">76</label>
+                    <label class="scoreCardPossible">of 100</label>
                 </div>
                 <h2>Great</h2>
                 <p>You scored higher than 65% of the people who have taken these tests.</p>
             </section>
-            <section title="summaryCard">
+            <section class="summaryCard" title="summaryCard">
                 <h2>Summary</h2>
-                <div id="resultBarReaction" title="resultBarReaction">
+                <div class="summaryCardResultBarReaction" title="resultBarReaction">
                     <img src="assets/images/icon-reaction.svg">
-                    <label>Reaction</label>
-                    <label>80</label>
-                    <label>/ 100</label>
+                    <label class="summaryCardLabelReaction">Reaction</label>
+                    <label class="summaryCardReached">80</label>
+                    <label class="summaryCardPossible">/ 100</label>
                 </div>
-                <div id="resultBarMemory" title="resultBarMemory">
+                <div class="summaryCardResultBarMemory" title="resultBarMemory">
                     <img src="assets/images/icon-memory.svg">
-                    <label>Memory</label>
-                    <label>92</label>
-                    <label>/ 100</label>
+                    <label class="summaryCardLabelMemory">Memory</label>
+                    <label class="summaryCardReached">92</label>
+                    <label class="summaryCardPossible">/ 100</label>
                 </div>
-                <div id="resultBarVerbal" title="resultBarVerbal">
+                <div class="summaryCardResultBarVerbal" title="resultBarVerbal">
                     <img src="assets/images/icon-verbal.svg">
-                    <label>Verbal</label>
-                    <label>61</label>
-                    <label>/ 100</label>
+                    <label class="summaryCardLabelVerbal">Verbal</label>
+                    <label class="summaryCardReached">61</label>
+                    <label class="summaryCardPossible">/ 100</label>
                 </div>
-                <div id="resultBarVisual" title="resultBarVisual">
+                <div class="summaryCardResultBarVisual" title="resultBarVisual">
                     <img src="assets/images/icon-visual.svg">
-                    <label>Visual</label>
-                    <label>72</label>
-                    <label>/ 100</label>
+                    <label class="summaryCardLabelVisual">Visual</label>
+                    <label class="summaryCardReached">72</label>
+                    <label class="summaryCardPossible">/ 100</label>
                 </div>
                 <button>Continue</button>
             </section>
