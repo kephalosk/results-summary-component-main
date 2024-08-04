@@ -39,7 +39,7 @@
                 align-items: center;
                 justify-content: flex-start;
                 display: grid;
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
                 border-radius: 10px;
                 margin-bottom: 24px;
                 padding: 16px;
@@ -53,7 +53,7 @@
                 flex-direction: column;
                 background: linear-gradient(0deg, hsl(241, 81%, 54%) 0%, hsl(252, 100%, 67%) 100%);
                 border-radius: 30px;
-                padding: 20px 60px 30px 60px;
+                padding: 20px 4vw 30px 4vw;
             }
 
             .scoreCard h2 {
@@ -141,6 +141,7 @@
                 align-items: center;
                 display: flex;
                 justify-content: flex-end;
+                white-space: nowrap;
             }
 
             body {
@@ -184,7 +185,8 @@
                 display: grid;
                 grid-template-columns: 1fr 1fr;
                 margin: 284px 0;
-                width: 736px;
+                max-width: 736px;
+                width: 100%;
             }
 
             p {
